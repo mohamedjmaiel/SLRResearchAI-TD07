@@ -1,0 +1,100 @@
+{
+  "schema_version": "BIS-1.0",
+  "origin": "TD06_MINI_CORPUS_PEDAGOGIQUE",
+  "topic": "LLM pour assister le screening d'une revue systématique",
+  "scope": "Mini-corpus comparatif destiné à apprendre Plan-and-Execute. Il contient des recouvrements et des tensions entre études ; il ne constitue ni une recherche exhaustive ni une SLR publiable.",
+  "comparison_notes": ["E1 et E2 illustrent un compromis entre rappel élevé et spécificité.", "E5 et E6 soutiennent des contrôles proches mais dans des domaines différents.", "Une même étude peut contribuer à plusieurs questions de recherche dans un vrai protocole d'extraction."],
+  "required_rqs": ["RQ1", "RQ2", "RQ3"],
+  "evidence": [
+    {
+      "id": "E7", "rq_id": "RQ2", "paper_id": "PMID38768452", "page": 1, "year": 2024,
+      "research_question": "Quel compromis les études observent-elles entre charge économisée et risque d'erreur ?",
+      "paper_title": "Sensitivity and Specificity of Using GPT-3.5 Turbo Models for Title and Abstract Screening in Systematic Reviews and Meta-analyses",
+      "study_design": "Extraction comparative complémentaire", "sample": "Cinq revues systématiques", "models": ["GPT-3.5 Turbo"],
+      "finding": "La règle orientée rappel augmente la sensibilité mais diminue la spécificité : le gain de sécurité se paie par davantage de notices à vérifier.",
+      "text": "Le choix du seuil modifie simultanément le rappel, la spécificité et la charge de vérification.",
+      "limitation": "Même étude que E2, analysée ici sous l'angle opérationnel ; aucune mesure prospective.", "source_url": "https://pubmed.ncbi.nlm.nih.gov/38768452/", "facets": ["threshold_tradeoff", "workload_reduction", "false_negative_risk"]
+    },
+    {
+      "id": "E8", "rq_id": "RQ3", "paper_id": "PMID40701625", "page": 1, "year": 2025,
+      "research_question": "Quels mécanismes de contrôle et de validation les études recommandent-elles avant un déploiement réel ?",
+      "paper_title": "Development and evaluation of prompts for a large language model to screen titles and abstracts in a living systematic review",
+      "study_design": "Extraction comparative complémentaire", "sample": "11 939 notices et deux mises à jour", "models": ["GPT-4o"],
+      "finding": "La calibration du prompt est indispensable et doit être vérifiée sur le corpus local avant toute utilisation répétée.",
+      "text": "Le prompt doit être calibré et contrôlé dans le domaine avant déploiement.",
+      "limitation": "Le résultat provient d'une seule living review et ne remplace pas une validation prospective.", "source_url": "https://pubmed.ncbi.nlm.nih.gov/40701625/", "facets": ["prompt_calibration", "domain_validation", "human_oversight"]
+    },
+    {
+      "id": "E1", "rq_id": "RQ1", "paper_id": "PMID40701625", "page": 1, "year": 2025,
+      "research_question": "Que montrent les études sélectionnées sur la sensibilité des LLM pendant le screening ?",
+      "paper_title": "Development and evaluation of prompts for a large language model to screen titles and abstracts in a living systematic review",
+      "study_design": "Validation rétrospective dans une living review",
+      "sample": "11 939 notices et deux mises à jour", "models": ["GPT-4o"],
+      "finding": "Après calibration, la sensibilité atteint 100 % pour les études finalement incluses, mais varie entre 58 % et 100 % au stade titre-résumé.",
+      "text": "Sensibilité élevée après calibration, avec variation entre mises à jour.",
+      "limitation": "Une seule revue en santé mentale et un prompt adapté à ce corpus.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40701625/",
+      "facets": ["high_recall", "prompt_calibration"]
+    },
+    {
+      "id": "E2", "rq_id": "RQ1", "paper_id": "PMID38768452", "page": 1, "year": 2024,
+      "research_question": "Que montrent les études sélectionnées sur la sensibilité des LLM pendant le screening ?",
+      "paper_title": "Sensitivity and Specificity of Using GPT-3.5 Turbo Models for Title and Abstract Screening in Systematic Reviews and Meta-analyses",
+      "study_design": "Étude rétrospective sur cinq revues",
+      "sample": "Cinq revues systématiques", "models": ["GPT-3.5 Turbo"],
+      "finding": "La règle équilibrée obtient 81,1 % à 96,5 % de sensibilité ; la règle orientée rappel atteint 94,6 % à 99,8 % mais réduit la spécificité.",
+      "text": "Le seuil modifie le compromis sensibilité-spécificité.",
+      "limitation": "Petit nombre de revues et performance dépendante du prompt.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/38768452/",
+      "facets": ["sensitivity_range", "threshold_tradeoff"]
+    },
+    {
+      "id": "E3", "rq_id": "RQ2", "paper_id": "PMID40701625", "page": 1, "year": 2025,
+      "research_question": "Quel compromis les études observent-elles entre charge économisée et risque d'erreur ?",
+      "paper_title": "Development and evaluation of prompts for a large language model to screen titles and abstracts in a living systematic review",
+      "study_design": "Simulation de charge sur une living review",
+      "sample": "11 939 notices et deux mises à jour", "models": ["GPT-4o"],
+      "finding": "La réduction simulée de charge varie entre 65 % et 85 %, avec très peu de fausses exclusions finales.",
+      "text": "Réduction de charge simulée de 65 % à 85 %.",
+      "limitation": "Gain simulé dans un seul contexte après calibration.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40701625/",
+      "facets": ["workload_reduction", "false_negative_risk"]
+    },
+    {
+      "id": "E4", "rq_id": "RQ2", "paper_id": "PMID40119675", "page": 1, "year": 2025,
+      "research_question": "Quel compromis les études observent-elles entre charge économisée et risque d'erreur ?",
+      "paper_title": "High-performance automated abstract screening with large language model ensembles",
+      "study_design": "Validation multi-revues de modèles et d'ensembles",
+      "sample": "119 695 notices de 23 revues Cochrane", "models": ["GPT-4o", "Llama 3", "Gemini 1.5 Pro", "Claude Sonnet 3.5"],
+      "finding": "La sensibilité parfaite réduit moins la charge ; une réduction proche de 94 % s'accompagne d'une sensibilité voisine de 0,94.",
+      "text": "La réduction de charge et le rappel maximal ne sont pas obtenus simultanément.",
+      "limitation": "Précision positive faible sur un corpus réel très déséquilibré.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40119675/",
+      "facets": ["workload_reduction", "recall_workload_tradeoff"]
+    },
+    {
+      "id": "E5", "rq_id": "RQ3", "paper_id": "PMID40119675", "page": 1, "year": 2025,
+      "research_question": "Quels mécanismes de contrôle et de validation les études recommandent-elles avant un déploiement réel ?",
+      "paper_title": "High-performance automated abstract screening with large language model ensembles",
+      "study_design": "Évaluation sur 23 revues de tailles différentes",
+      "sample": "119 695 notices", "models": ["Plusieurs LLM commerciaux et ouverts"],
+      "finding": "La variation entre revues impose une validation locale et favorise un fonctionnement parallèle avec un reviewer humain.",
+      "text": "La performance varie selon la revue et le domaine.",
+      "limitation": "Principalement des revues Cochrane et exclusion des notices sans résumé.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40119675/",
+      "facets": ["domain_validation", "human_oversight"]
+    },
+    {
+      "id": "E6", "rq_id": "RQ3", "paper_id": "PMID40638273", "page": 1, "year": 2025,
+      "research_question": "Quels mécanismes de contrôle et de validation les études recommandent-elles avant un déploiement réel ?",
+      "paper_title": "Generative pretrained transformer models can function as highly reliable second screeners",
+      "study_design": "Trois expériences sur des revues psychologiques",
+      "sample": "Trois revues de complexité différente", "models": ["Modèles GPT via API"],
+      "finding": "Le LLM est proposé comme second screener ; un prompt séparé par critère rend les décisions plus contrôlables.",
+      "text": "Le rôle de second screener et le multiprompt renforcent le contrôle.",
+      "limitation": "Validation limitée au domaine de la psychologie.",
+      "source_url": "https://pubmed.ncbi.nlm.nih.gov/40638273/",
+      "facets": ["second_reviewer", "criterion_traceability"]
+    }
+  ]
+}
